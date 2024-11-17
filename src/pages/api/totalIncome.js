@@ -1,4 +1,3 @@
-// pages/api/totalIncome.js
 import { createPool } from 'mysql2/promise';
 
 const pool = createPool({

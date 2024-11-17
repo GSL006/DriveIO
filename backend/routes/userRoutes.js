@@ -3,7 +3,6 @@ const router = express.Router();
 const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
 
-// Database connection
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -18,7 +17,6 @@ db.connect((err) => {
     console.log('Connected to the database.');
 });
 
-// Insert into Customers or Owners
 router.post('/register', async (req, res) => {
     console.log('Received data:', req.body);
 
@@ -54,4 +52,4 @@ router.post('/register', async (req, res) => {
     }
 });
 
-module.exports = router; // Export the router for use in app.js
+module.exports = router; 

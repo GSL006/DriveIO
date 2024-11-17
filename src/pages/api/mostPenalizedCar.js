@@ -1,4 +1,3 @@
-// pages/api/mostPenalizedCar.js
 import mysql from 'mysql2/promise';
 
 export default async function handler(req, res) {
@@ -10,10 +9,8 @@ export default async function handler(req, res) {
   };
 
   try {
-    // Create a new database connection
     const connection = await mysql.createConnection(dbConfig);
 
-    // Define your query to get the car with the highest penalty amount
     const query = `
       SELECT c.model, p.reg_num, SUM(p.penalty_amt) AS total_penalty
       FROM Penalties p
@@ -23,13 +20,10 @@ export default async function handler(req, res) {
       LIMIT 1;
     `;
 
-    // Execute the query
     const [rows] = await connection.execute(query);
 
-    // Close the connection
     await connection.end();
 
-    // Check and respond with the result
     if (rows.length > 0) {
       res.status(200).json(rows[0]);
     } else {

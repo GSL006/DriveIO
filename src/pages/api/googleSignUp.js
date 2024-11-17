@@ -19,7 +19,6 @@ export default async function handler(req, res) {
             const table = userType === 'owner' ? 'Owners' : 'Customers';
             const emailColumn = userType === 'owner' ? 'owner_email' : 'customer_email';
 
-            // Insert user into the appropriate table with a nullable password
             const query = `INSERT INTO ${table} (${emailColumn}) VALUES (?)`;
             await db.execute(query, [email]);
 

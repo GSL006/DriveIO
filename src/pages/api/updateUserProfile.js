@@ -1,4 +1,4 @@
-import mysql from 'mysql2/promise'; // Using mysql2's promise-based API for async/await
+import mysql from 'mysql2/promise'; 
 
 export default async function handler(req, res) {
     if (req.method === 'PUT') {
@@ -8,7 +8,6 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Email and user type are required' });
         }
 
-        // Database connection
         const connection = await mysql.createConnection({
             host: 'localhost', 
             user: 'root',
@@ -17,7 +16,6 @@ export default async function handler(req, res) {
         });
 
         try {
-            // SQL query based on user type
             const query = userType === 'customer'
                 ? `UPDATE Customers SET fname = ?, lname = ?, phone_number = ?, c_addr = ?, DL = ?, Adhaar_num = ? WHERE customer_email = ?`
                 : `UPDATE Owners SET fname = ?, lname = ?, phone_number = ?, o_addr = ?, DL = ?, Adhaar_num = ? WHERE owner_email = ?`;
@@ -33,7 +31,7 @@ export default async function handler(req, res) {
         } catch (error) {
             res.status(500).json({ error: 'Failed to update user profile', details: error.message });
         } finally {
-            await connection.end(); // Ensure connection closes properly with async/await
+            await connection.end(); 
         }
     } else {
         res.status(405).json({ error: 'Method not allowed' });

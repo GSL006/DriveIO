@@ -2,14 +2,13 @@ import mysql from 'mysql2';
 
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root', // Update with your MySQL user
-  password: 'Charizard@123', // Update with your MySQL password
-  database: 'Car_Rental', // Update with your database name
+  user: 'root', 
+  password: 'Charizard@123',
+  database: 'Car_Rental', 
 });
 
 export default async function handler(req, res) {
   try {
-    // The query you provided
     const query = `
       SELECT model
       FROM Cars
@@ -26,7 +25,6 @@ export default async function handler(req, res) {
       }
 
       if (results.length > 0) {
-        // If the result is found, return the car's model
         const bestCar = results[0].model;
         res.status(200).json({ model: bestCar });
       } else {
