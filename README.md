@@ -31,4 +31,4 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Remeber to comment the test button on hte payments page to test the [ayment integration with PayPal
+## Remember to comment the test button on the payments page to test the payment integration with PayPal
