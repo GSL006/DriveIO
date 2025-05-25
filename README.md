@@ -1,7 +1,3 @@
-Certainly! Based on the details you've provided and the structure of your project, here's a comprehensive `README.md` file tailored for your DriveIO car rental platform:
-
----
-
 # 🚗 DriveIO – Peer-to-Peer Car Rental Platform
 
 DriveIO is a full-stack car rental solution where users can sign up as owners to list their vehicles or as customers to book them. Built with Next.js, Node.js, MySQL, and Firebase, it offers a seamless booking experience with PayPal integration for secure payments.
